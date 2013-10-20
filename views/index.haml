@@ -1,0 +1,87 @@
+
+.row
+  .col-md-6
+    %form.form-horizontal{ role: 'form' }
+      .form-group
+        %label.col-lg-2.control-label{ for: 'name' } Name
+        .col-lg-10
+          %input.form-control#name{ type: 'text', placeholder: 'Name', data: { elm: 'name' } }
+      .form-group
+        %label.col-lg-2.control-label{ for: 'website' } WebSite
+        .col-lg-10
+          .input-group
+            %span.input-group-addon http://
+            %input.form-control#website{ type: 'text', data: { elm: 'website' } }
+      .form-group
+        %label.col-lg-2.control-label{ for: 'twitter' } Twitter
+        .col-lg-10
+          .input-group
+            %span.input-group-addon @
+            %input.form-control#twitter{ type: 'text', data: { elm: 'twitter' } }
+      .form-group
+        %label.col-lg-2.control-label{ for: 'github' } Github
+        .col-lg-10
+          .input-group
+            %span.input-group-addon @
+            %input.form-control#github{ type: 'text', data: { elm: 'github' } }
+      .form-group
+        %label.col-lg-2.control-label{ for: 'facebook' } facebook
+        .col-lg-10
+          .input-group
+            %span.input-group-addon facebook.com/
+            %input.form-control#facebook{ type: 'text', data: { elm: 'facebook' } }
+  .col-md-6
+    .preview
+      .card
+        .card-element.elm-name Name
+        .card-element.urls
+          .elm-website
+          .elm-twitter
+          .elm-github
+          .elm-facebook
+
+
+:css
+  .preview{
+    border: 2px solid #ccc;
+  }
+  .card{
+    background: #fafafa url('/resources/design2_preview.png') no-repeat left top;
+    height: 272px;
+    background-size: contain;
+    position: relative;
+  }
+  .preview .border{
+  }
+  .preview .card-element{
+    position: absolute;
+    left: 20px;
+  }
+  .elm-name { top: 20px; font-size: 40px; line-height: 1; }
+  .urls { top: 80px; font-size: 12px; }
+
+:javascript
+  var appends = {
+    'name': '',
+    'website': 'http://',
+    'twitter': 'https://twitter.com/',
+    'github': 'https://github.com/',
+    'facebook': 'https:facebook/com/'
+  }
+  $(function(){
+    var update_preview = function(){
+      console.log('hi');
+      elm_name = $(this).attr('data-elm');
+      if(elm_name){
+        elm_value = $(this).val();
+        if(elm_value){
+          $('.elm-' + elm_name).html(appends[elm_name] + elm_value);
+        }else{
+          $('.elm-' + elm_name).html('');
+        }
+      }
+    }
+    $('input').each(function(){
+      $(this).bind('keyup', update_preview)
+    });
+  });
