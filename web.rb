@@ -3,6 +3,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'haml'
+require 'less'
 require 'json'
 
 get '/bootstrap.css' do
