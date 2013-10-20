@@ -2,8 +2,7 @@
 %html{ html_attrs('ja') }
   %head
     %title VimCard
-    %link(rel='stylesheet' href='css/bootstrap.min.css')
-    %link(rel='stylesheet' href='css/bootstrap-theme.min.css')
+    %link(rel='stylesheet' href='/bootstrap.css')
     -# %link(rel='stylesheet' href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css')
     -# %link(rel='stylesheet' href='//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css')
     %script{:src => '//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js'}
@@ -17,17 +16,22 @@
 
     %footer
       .container
-        Note that VimCard is only tested in GoogleChrome for "Supporting multibrowser is Sugoi-Mendokusai" reason.
+        .row
+          .col-md-12
+            %p
+              Note that VimCard is only tested in GoogleChrome for "Supporting multibrowser is Sugoi-Mendokusai" reason.
 
 :css
   .container{
     max-width: none !important;
     width: 970px;
   }
-  footer .container{
+  footer{
+    padding: 50px 0 30px 0;
+  }
+  footer .container p{
     background: #f5f5f5;
     padding: 20px 0;
-    margin-top: 50px;
     color: #999;
     border-radius: 5px;
     text-align: center;

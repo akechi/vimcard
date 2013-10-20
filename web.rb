@@ -5,6 +5,9 @@ require 'sinatra'
 require 'haml'
 require 'json'
 
+get '/bootstrap.css' do
+  less :'less/bootstrap', :paths => ['views/less']
+end
 
 get '/' do
   haml :index

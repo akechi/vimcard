@@ -3,6 +3,11 @@
   .col-md-6
     %form.form-horizontal{ role: 'form' }
       .form-group
+        %label.col-lg-2.control-label{ for: 'design' } Design
+        .col-lg-10
+          %select.form-control
+            %option KanariSugoi
+      .form-group
         %label.col-lg-2.control-label{ for: 'name' } Name
         .col-lg-10
           %input.form-control#name{ type: 'text', placeholder: 'Name', data: { elm: 'name' } }
@@ -39,9 +44,14 @@
           .elm-twitter
           .elm-github
           .elm-facebook
+    .download
+      %button.btn.btn-primary.btn-lg.btn-block{ type: 'button' } Download ( not works yet )
 
 
 :css
+  .download{
+    padding-top: 20px;
+  }
   .preview{
     border: 2px solid #ccc;
   }
